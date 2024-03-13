@@ -1,0 +1,87 @@
+%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'control_archi.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{206.52497109bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.85582696)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{control_archi.pdf}}%
+    \put(0.24785838,0.51366159){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{d}_{1}$}\\\end{tabular}}}}%
+    \put(0.13610348,0.4198319){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{p}_{2}$}\\\end{tabular}}}}%
+    \put(0.13805739,0.25663037){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{u}_{1}$}\\\end{tabular}}}}%
+    \put(0.25255723,0.33156099){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{c}_{1}$}\\\end{tabular}}}}%
+    \put(0.4979364,0.42170873){\color[rgb]{0.12941176,0.04705882,0.50196078}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Application}\end{tabular}}}}%
+    \put(0.50443627,0.11133814){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Plant}\end{tabular}}}}%
+    \put(0.43181728,0.80578669){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\zeta^{d}_{\mathrm{ref}}$}\\\end{tabular}}}}%
+    \put(0.37403875,0.68734913){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}OCP Solver\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{control_archi.pdf}}%
+    \put(0.88830505,0.37152217){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Drive\\Controller\end{tabular}}}}%
+    \put(0.37265994,0.5525689){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Constraint\\Generator\end{tabular}}}}%
+    \put(0.12154094,0.54071758){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Observer\end{tabular}}}}%
+    \put(0.12275534,0.36906342){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Predictor \\Euler\end{tabular}}}}%
+    \put(0.37944392,0.35825592){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SLAM\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{control_archi.pdf}}%
+    \put(0.6429964,0.37086771){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Kalman\\Filter\end{tabular}}}}%
+    \put(0.37863163,0.19072969){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Top\\Scanner\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{control_archi.pdf}}%
+    \put(0.64436729,0.19030507){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Front\\Scanner\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{control_archi.pdf}}%
+    \put(0.64345604,0.06292779){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Rear\\Scanner\end{tabular}}}}%
+    \put(0.11906658,0.17559508){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Encoder\end{tabular}}}}%
+    \put(0.88079027,0.18944482){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Motor\\Controller\end{tabular}}}}%
+    \put(0.65495911,0.71228267){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\eta_{1}$ =  $g(\zeta^u_{1})$ }\\\end{tabular}}}}%
+    \put(0.11978682,0.69997745){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Predictor\\RK\end{tabular}}}}%
+    \put(0.32124914,0.80600785){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{d}_{4}$}\\\end{tabular}}}}%
+    \put(0.26511937,0.62097493){\color[rgb]{0.12941176,0.04705882,0.50196078}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{MPC}\end{tabular}}}}%
+    \put(0.67145828,0.51465524){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$p_{\mathrm{ob}}$}\\\end{tabular}}}}%
+    \put(0.90199647,0.25663582){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tilde{\zeta}^{u}_{1}$}\\\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

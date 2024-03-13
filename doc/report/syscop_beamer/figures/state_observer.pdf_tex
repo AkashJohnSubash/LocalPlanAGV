@@ -1,0 +1,73 @@
+%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'state_observer.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{121.82263472bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.74742556)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{state_observer.pdf}}%
+    \put(0.78390685,0.48161425){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Controller\end{tabular}}}}%
+    \put(0.83870171,0.35280952){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tilde{\zeta}^{u}_{1}$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{state_observer.pdf}}%
+    \put(0.55242791,0.04768659){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Plant\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{state_observer.pdf}}%
+    \put(0.32675495,0.48250809){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\mathcal{F}_{\gamma}(\hat{\zeta}^{c}_{0})$}\\\end{tabular}}}}%
+    \put(0.52533414,0.72298668){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\zeta^{l}_{0}$}\\\end{tabular}}}}%
+    \put(0.86690874,0.72115657){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\zeta^{d}_{ref}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{state_observer.pdf}}%
+    \put(0.31529709,0.23820541){\color[rgb]{0.37647059,0.32156863,0.63529412}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tau_{m}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{state_observer.pdf}}%
+    \put(0.35717999,0.57517625){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{f}_{0}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{state_observer.pdf}}%
+    \put(0.35709158,0.34887875){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{p}_{0}$}\\\end{tabular}}}}%
+    \put(0.79723902,0.24495316){\color[rgb]{0.37647059,0.32156863,0.63529412}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tau_{a}$}\\\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

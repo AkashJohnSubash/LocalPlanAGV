@@ -1,0 +1,82 @@
+%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'state_observer.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{128.0254558bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.94598531)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{state_observer.pdf}}%
+    \put(0.75580804,0.67267798){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Solver\\\end{tabular}}}}%
+    \put(0.80237409,0.31263477){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tilde{\zeta}^{u}_{1}$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{state_observer.pdf}}%
+    \put(0.4862585,0.04291073){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Plant\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{state_observer.pdf}}%
+    \put(0.27092509,0.91345158){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{l}_{1}$}\\\end{tabular}}}}%
+    \put(0.81836043,0.92066491){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\zeta^{l}_{\mathrm{ref}}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{state_observer.pdf}}%
+    \put(0.22748684,0.20149684){\color[rgb]{0.13333333,0.05098039,0.49411765}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tau_{m}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{state_observer.pdf}}%
+    \put(0.2699558,0.76293973){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{f}_{1}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{state_observer.pdf}}%
+    \put(0.26987168,0.54760632){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{p}_{1}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{state_observer.pdf}}%
+    \put(0.49313237,0.62215454){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\zeta^{f}_{1}$}\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{state_observer.pdf}}%
+    \put(0.51114107,0.42516227){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Application module\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{state_observer.pdf}}%
+    \put(0.84338574,0.55134884){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$g(\zeta^{u}_{1})$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{state_observer.pdf}}%
+    \put(0.70236626,0.92133495){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\hat{\zeta}^{l}_{4}$}\\\end{tabular}}}}%
+    \put(0.48710785,0.86982042){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Predictor\end{tabular}}}}%
+    \put(0.23390158,0.66860234){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Observer\end{tabular}}}}%
+    \put(0.76067137,0.20239045){\color[rgb]{0.13333333,0.05098039,0.49411765}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{$\tau_{a}$}\\\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

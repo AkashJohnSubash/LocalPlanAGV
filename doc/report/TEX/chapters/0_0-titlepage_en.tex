@@ -1,0 +1,65 @@
+\begin{titlepage}
+\begin{center}
+	
+\newcommand{\HorizontalLine}{\rule{\linewidth}{0.3mm}}
+
+{\LARGE Master's Thesis}\\[0.5cm]
+% _____________________________________________________________________________
+\HorizontalLine \\[0.3cm]
+% Write your title in a fancy way like this if you want to customize it, otherwise simply let Tex do it for you
+% \begin{spacing}{3}
+%     {\huge \bfseries The Long, Long } \\
+%     {\huge \bfseries Long Long} \\
+%     {\huge \bfseries Title}\\
+% \end{spacing}
+{ \LARGE \bfseries \thetitle }
+\HorizontalLine \\[0.3cm]
+% _____________________________________________________________________________
+
+{\LARGE \theauthor} \\[0.8cm]
+\begin{tabular}[hc]{>{\LARGE}l >{\LARGE}l}
+  Examiner: & \firstexaminer \\[0.3cm]
+  Advisors: & \advisers \\[0.3cm]
+\end{tabular}
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[height = 0.18\paperheight]{ufr_logo1.png}
+	\end{center}
+\end{figure}
+\vfill  % move the following text to the bottom
+\LARGE {
+    Albert-Ludwigs-University Freiburg\\
+    Faculty of Engineering\\
+    Systems Control and Optimization \&\\ 
+	ek robotics GmbH\\[1cm]
+	\dateenglish February $\mathrm{2^{nd}}$, 2024
+}
+\end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+
+% title page back
+\ \vfill \ \\  % at least one space required before Vfill
+\
+\large {
+	\textbf{Examiner}                  \smallskip{} \\
+	\firstexaminer                     \bigskip{} \\
+	\
+	% If there is a second examiner include it
+	\ifdef{\secondexaminer}
+		{
+		% Include
+		\textbf{Second Examiner}      \smallskip{} \\
+		\secondexaminer                \bigskip{} \\
+		\
+		}
+		{
+		% No second examiner, ignore
+		}
+	\textbf{Advisors}                  \smallskip{} \\
+	\advisers							\bigskip{} \\
+	\
+	\textbf{Writing Period}            \smallskip{} \\
+	14.\,10.\,2023 -- 05.\,1.\,2024    \bigskip{} \\
+}

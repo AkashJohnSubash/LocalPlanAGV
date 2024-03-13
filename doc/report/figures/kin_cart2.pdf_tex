@@ -1,0 +1,73 @@
+%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'kin_cart2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{159.6374979bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.58400877)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{kin_cart2.pdf}}%
+    \put(0.34998271,0.22873603){\color[rgb]{0.12941176,0.05098039,0.49019608}\transparent{0.71764702}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$x$}\end{tabular}}}}%
+    \put(0.19896897,0.34697066){\color[rgb]{0.13333333,0.05098039,0.49411765}\transparent{0.71525401}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$y$}\end{tabular}}}}%
+    \put(0.15825701,0.18540829){\color[rgb]{0.12941176,0.05098039,0.49019608}\transparent{0.71764702}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathrm{CG}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{kin_cart2.pdf}}%
+    \put(0.43343105,0.23979636){\color[rgb]{0.13333333,0.05098039,0.49411765}\transparent{0.71525401}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$\varphi$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{kin_cart2.pdf}}%
+    \put(0.90536928,0.40341515){\color[rgb]{0.13333333,0.05098039,0.49411765}\transparent{0.71525401}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$\alpha$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{kin_cart2.pdf}}%
+    \put(0.7865557,0.39163121){\color[rgb]{0.12941176,0.05098039,0.49019608}\transparent{0.71764702}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{v}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{kin_cart2.pdf}}%
+    \put(0.39981852,0.52834371){\color[rgb]{0.13333333,0.05098039,0.49411765}\transparent{0.71525401}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$d$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{kin_cart2.pdf}}%
+    \put(0.11223,0.34827888){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$y_{\mathrm{agv}}$}\end{tabular}}}}%
+    \put(0.35534351,0.27757713){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{$x_{\mathrm{agv}}$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{kin_cart2.pdf}}%
+  \end{picture}%
+\endgroup%

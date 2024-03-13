@@ -1,0 +1,108 @@
+% useful packages
+\usepackage{comment}
+
+% define location for all figures
+\graphicspath{{./figures/}{./syscop_beamer/figures/}}
+
+% The second path allow to use the syscop_beamer repository
+% as a submodule of the repository for a given personal presentation
+% this in order to decouple the style from the content.
+
+% define colors from University of Freiburg logo (pdf version):
+% https://cd.uni-freiburg.de/
+\definecolor{ufblue}{RGB}{52,74,154}
+\definecolor{ufblue80}{RGB}{ 93,107,173}
+\definecolor{ufblue60}{RGB}{134,141,194}
+\definecolor{ufblue40}{RGB}{175,177,216}
+
+% customize itemize and enumerate
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamercolor{itemize item}{ fg=ufblue}
+\setbeamercolor{itemize subitem}{ fg=ufblue80}
+\setbeamercolor{itemize subsubitem}{ fg=ufblue60}
+\setbeamercolor{itemize subsubsubitem}{ fg=ufblue40}
+
+\setbeamercolor{enumerate item}{ fg=ufblue}
+\setbeamercolor{enumerate subitem}{ fg=ufblue}
+\setbeamercolor{enumerate subsubitem}{ fg=ufblue}
+\setbeamercolor{enumerate subsubsubitem}{ fg=ufblue}
+
+% for table of contents
+\setbeamerfont{section number projected}{size=\normalsize}
+\setbeamercolor{section number projected}{bg=white,fg=ufblue}
+\setbeamercolor{section in toc}{fg=ufblue}
+\setbeamercolor{subsection in toc}{fg=ufblue}
+
+% update colors of block environment
+\setbeamercolor{block title}{bg=ufblue,fg=white}
+% \setbeamercolor{block body}{bg=ufgray,fg=black}
+
+% add university logo on header 
+\usepackage{textpos} 
+
+\addtobeamertemplate{frametitle}{}{%
+    \begin{textblock*}{300mm}(\paperwidth,-1.91cm)
+    	\hspace{-3.08cm}
+        \includegraphics[scale=0.06]{right_highres_transparent}
+    \end{textblock*}
+}
+
+% change header color to university blue
+\setbeamercolor{headline}{bg=ufblue,fg=white}
+\setbeamercolor*{frametitle}{parent=headline}
+
+% uncomment to add and modify footer
+\begin{comment}
+\setbeamercolor{footlinecolor}{bg=ufblue,fg=white}
+\makeatother
+\setbeamertemplate{footline}
+{%
+	\leavevmode%
+	\hbox{\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{footlinecolor}%
+	\insertshorttitle
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{footlinecolor}%
+		\usebeamerfont{author in head/foot}\insertshortauthor\hfill\insertframenumber%\insertpagenumber
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\end{comment}
+
+% change title background color
+\setbeamercolor{title}{bg=ufblue}
+
+% uncomment to remove navigation buttons
+\setbeamertemplate{navigation symbols}{}
+
+% modify title slide
+\newcommand{\InsertTitle}{
+	{
+		\setbeamertemplate{logo}{} % remove logo (if any)
+		\setbeamertemplate{headline}{} % remove header (if any)
+		\setbeamertemplate{footline}{} % remove footer (if any)
+		\begin{frame}[noframenumbering] % do not count title frame in frame numbers
+			\vspace{-0.1\paperheight}
+			\titlepage
+			\begin{figure}[b]
+				% \includegraphics[height = 0.2\paperheight]{figures/UFlogo}
+				\includegraphics[height = 0.2\paperheight]{figures/EK_logo.png}
+			\end{figure}
+		\end{frame}
+	}
+}
+
+% correct font in math mode
+\usefonttheme[onlymath]{serif}
+
+% Add slide number to navigation tools
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	% \insertframenumber/\inserttotalframenumber
+}
+
+\setbeamercolor{footline}{fg=ufblue}
+\setbeamerfont{footline}{series=\bfseries}

@@ -1,0 +1,277 @@
+
+%------------------------------------------
+% Packages
+%------------------------------------------
+\newcommand{\ignore}[1]{} % comment out
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+%\usepackage{mathtools}
+%\usepackage{amsthm} % for theorems
+%\usepackage{multirow}
+
+\usepackage{enumerate} % for enumeration with letters!
+% e.g. \begin{enumerate}[(a)] or [1.] etc
+
+% % % algorithms
+
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}	
+\usepackage{algorithmicx}
+
+
+%------------------------------------------
+% Drawing
+%------------------------------------------
+
+% CONFLICTS with syscop_beamer style
+%\usepackage{tikz}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg,.eps}
+%\usetikzlibrary{matrix,shapes.geometric,calc,backgrounds}
+%\usetikzlibrary{arrows}
+%\usetikzlibrary{calc}
+
+
+%------------------------------------------
+% Annotation
+%------------------------------------------
+
+
+%\providecommand{\todo}{\red{TODO: }} 
+
+% boxes for comments and todos
+\definecolor{lightred}{rgb}{0.90,0.60,0.60} % choose box background color
+\providecommand{\todo}[1]{
+\begin{center}
+\fcolorbox{lightred}{lightred}{\parbox[t]{0.45\textwidth}{\textbf{Todo:} #1 }}
+\end{center}}
+
+\definecolor{lightgreen}{rgb}{0.86,0.97,0.75} 
+\newcommand{\dimi}[1]{
+\begin{center}
+\fcolorbox{lightgreen}{lightgreen}{\parbox[t]{0.45\textwidth}{\textbf{Dimitris:} #1 }}
+\end{center}}
+
+\definecolor{wheat}{rgb}{0.96,0.87,0.70}
+\newcommand{\rien}[1]{
+\begin{center}
+\fcolorbox{wheat}{wheat}{\parbox[t]{0.45\textwidth}{\textbf{Rien:} #1 }}
+\end{center}}
+
+% replace text
+\usepackage{soulutf8}
+\newcommand{\replace}[2]{
+\textcolor{red}{\st{#1} #2}}
+\newcommand{\replaced}[2]{#2}
+\providecommand{\rmv}[1]{
+\textcolor{red}{move or remove: #1}}
+      
+%------------------------------------------
+% Tables
+%------------------------------------------
+
+\usepackage{booktabs}
+% more space between lines
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}		
+
+% checkmarks
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% Example: (CHECK IF IT WORKS)
+\ignore{
+ \begin{table*}\centering
+ \ra{1.3}
+ \hspace*{-1cm}
+ % @{} removes space in vertical edges
+ \begin{tabular}{@{}llll@{}} \toprule 
+ ... \cmidrule{2-4} ...
+ \bottomrule
+ \end{tabular}
+ \caption{Caption}
+ \end{table*}
+}
+
+% command to force line break within cell
+\newcommand{\specialcell}[2][c]{
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}		 
+% e.g. : \specialcell[t]{foo \\ bar} 
+% t: aligned with top rule
+% b: aligned with botom rule
+% c: default vertically centered
+
+%------------------------------------------
+% Matlab
+%------------------------------------------
+
+\definecolor{matlabGreen}{RGB}{0,160,0}    
+\providecommand{\matlab}[1]{\texttt{#1}}
+\newcommand{\matlabcom}[1]{{\color{matlabGreen}\texttt{\%#1}}}
+
+%------------------------------------------
+% Transitions (props to Rien)
+%------------------------------------------
+% # 1 = text 
+% # 2 = when to appear in slide, without effect (use dash for several transitions)
+% # 3 = when to change color/style (use dash for several transitions)
+
+\newcommand{\makeRed}[3]{\only<#2>{#1}\only<#3>{\textcolor{red}{#1}}}
+\newcommand{\makeBlue}[3]{\only<#2>{#1}\only<#3>{\textcolor{blue}{#1}}}
+\newcommand{\makeBold}[3]{\only<#2>{#1}\only<#3>{\textbf{#1}}}
+\newcommand{\makeRedBold}[3]{\only<#2>{#1}\only<#3>{\boldsymbol{\textcolor{red}{#1}}}} % ONLY MATH MODE
+
+%------------------------------------------
+% Optimization Problems
+%------------------------------------------
+% #1 = label (optional)
+% #2 = equation numbering (optional - type anything to suppress sub equation numbering)
+% #3 = optimization variables
+% #4 = objective function
+% #5 = constraints
+% #6 = min / minimize / max / maximize (text for problem - set automatically)
+% #7 = subject to / s.t. (text for constraints - set automatically)
+
+% example:
+\ignore{
+\minimize[eqtag]{x,y}
+{\sum_{k=0}^N x_k+x_k^2+x_k^3&&+y_k+y_k^2+y_k^3}
+{x_k<3 && k = 0,\ldots, N \\ &y_k <2 && k = 0,\ldots, N}
+}
+
+\usepackage{twoopt} % to have two optional arguments
+\usepackage{xifthen} % for if-then-else command
+
+\newcommandtwoopt{\optimize}[7][][]
+{%
+    \begin{subequations}%
+        \ifthenelse{\equal{#1}{}}{}{\label{#1}}
+        \ifthenelse{\equal{#2}{}}
+        {\begin{alignat}{5}
+                \underset{#3}{\mathrm{#6}\;} & #4 \\
+                \mathrm{#7}\; & #5 
+        \end{alignat}}
+        {\begin{alignat*}{5}
+            \underset{#3}{\mathrm{#6}\;} & #4 \\
+            \mathrm{#7}\; & #5 
+        \end{alignat*}}
+    \end{subequations}
+}
+
+
+\newcommandtwoopt{\minimize}[5][][]
+{\optimize[#1][#2]{#3}{#4}{#5}{minimize}{subject\,to}}
+
+\newcommandtwoopt{\minim}[5][][]
+{\optimize[#1][#2]{#3}{#4}{#5}{min}{s.t.}}
+
+\newcommandtwoopt{\maximize}[5][][]
+{\optimize[#1][#2]{#3}{#4}{#5}{maximize}{subject\,to}}
+
+\newcommandtwoopt{\maxim}[5][][]
+{\optimize[#1][#2]{#3}{#4}{#5}{max}{s.t.}}
+
+
+%------------------------------------------
+% Notation
+%------------------------------------------
+
+
+% % % MPC
+
+\newcommand{\Top}{\ensuremath{^\top} }	% Transpose operator
+
+\newcommand{\underscore}{\char`_} % Underscore
+
+% note the empty character to ensure space in text mode
+
+\newcommand{\nX}{\ensuremath{{n_{x}}} }		
+\newcommand{\nU}{\ensuremath{{n_{u}}} } 
+\newcommand{\nY}{\ensuremath{{n_{y}}} }
+\newcommand{\nI}{\ensuremath{{N}} }
+\newcommand{\xinit}{\ensuremath{\textbf{x}} }
+
+\newcommand{\tol}{\ensuremath{{\epsilon_{\mathrm{tol}}}} }
+\newcommand{\maxit}{\ensuremath{{k_{\max}}} }
+
+% % % MATH LETTERS
+
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\eye}{I}
+
+
+% derivatives
+\newcommand{\der}{\mathrm{d}} % total derivative
+\newcommand{\parder}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}} % partial derivative
+\newcommand{\secpardersame}[2]{\ensuremath{\frac{\partial^2 #1}{\partial {#2}^2}}} % second partial derivative
+\newcommand{\secparder}[3]{\ensuremath{\frac{\partial^2 #1}{\partial #2 \partial #3}}} % second partial derivative
+
+
+%------------------------------------------
+% Colors
+%------------------------------------------
+
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+
+\providecommand{\green}[1]{\textcolor{OliveGreen}{#1}}
+\providecommand{\blue}[1]{\textcolor{blue}{#1}}
+\providecommand{\magenta}[1]{\textcolor{magenta}{#1}}
+\providecommand{\red}[1]{\textcolor{red}{#1}}
+
+\newcommand{\semitransp}[2][35]{\color{fg!#1}#2} % make semi-transparent text
+
+%------------------------------------------
+% Misc
+%------------------------------------------
+
+% define stretch in matrix env. as argument (e.g., \begin{bmatrix}[1.4])
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+% uncomment for space instead of indenting between paragraphs
+%\usepackage[parfill]{parskip} 
+
+% to change the spacing between items in itemize environment:
+\newcommand{\setitem}[1]{\setlength\itemsep{{#1}em}}
+% e.g., \setitem{0.5}
+
+% reminder for citation
+\newcommand{\citesomething}{\red{\cite{something}}}
+
+
+% color framebox
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}%
+    \fbox{\color{currentcolor}#2}}%
+}
+
+%------------------------------------------
+% Comments
+%------------------------------------------
+
+% \providecommand defines a command ONLY if it doesn't exist.
+
+% use \onslide instead of \only to preserve space for the next transition (text won't move up when the new text comes in)
+
+% to change the space between items:
+
+\ignore{
+
+\begin{itemize}
+  \setlength\itemsep{1em}
+  \item one
+  \item two
+  \item three
+\end{itemize}
+
+}
