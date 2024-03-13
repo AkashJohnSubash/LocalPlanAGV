@@ -4,11 +4,11 @@ from matplotlib import pyplot, animation
 import mpl_toolkits.mplot3d.art3d as art3d
 from matplotlib.patches import Circle, Ellipse
 
-from common import *
-from sys_dynamics import SysDyn
+from local_planner_ocp.common import *
+from local_planner_ocp.sys_dynamics import SysDyn
 
 
-def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
+def animOptVars(traj_samples, traj_ST, traj_U, traj_slack, traj_twist, lifted=False):
     '''Plot data as animate matplotlib graph'''
     sysModel = SysDyn()
     # (nx , N+1 , mpc_iter)
@@ -44,8 +44,12 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
     traj_ST = traj_ST[:, :, ::f_plot]
     # nu X N X (mpc_iter/freq)
     traj_U = traj_U[:, ::f_plot]
+    # ns x (mpc_iter/frPeq)
+    traj_slack = traj_slack[:, :,::f_plot]
     # Contains discretization (times, mpc_stages) 3x (mpc_iter/freq)
     traj_samples = traj_samples[:, ::f_plot]
+    # Generate trajectory of twist
+    traj_twist = traj_twist[:, ::f_plot]
     
     if(lifted == False):
         zetaC_hat = np.zeros((3, dim_st[1], dim_st[2]))
@@ -119,7 +123,7 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
         velAx.set_data(traj_ST[zetaU_idx,  0, : iter], traj_samples[0, :iter +1] )
         alpAx.set_data(traj_ST[zetaU_idx + 1,  0, : iter], traj_samples[0, :iter +1] )
 
-        # Update control plot 
+        # Update control plot (drive command)
         accWAx.set_data(traj_U[0, :iter], traj_samples[0, :iter +1] )
         accWMaxAx.set_data(aW_max[0, :iter], traj_samples[0, :iter +1] )
         accWMinAx.set_data(aW_min[0, :iter], traj_samples[0, :iter +1] )
@@ -128,10 +132,32 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
         omgWMaxAx.set_data(omgW_max[0, :iter], traj_samples[0, :iter +1] )
         omgWMinAx.set_data(omgW_min[0, :iter], traj_samples[0, :iter +1] )
         
+        # Update ROS twist plot and other constraints
+        vAgvAx.set_data(traj_twist[0, :iter], traj_samples[0, :iter +1])
+        vAgvMaxAx.set_data(vAgv_max[0, :iter], traj_samples[0, :iter +1])
+        vAgvMinAx.set_data(vAgv_min[0, :iter], traj_samples[0, :iter +1])
+        
+        omgAgvAx.set_data(traj_twist[1, :iter], traj_samples[0, :iter +1] )
+        omgAgvMaxAx.set_data(omgAgvAx_max[0, :iter], traj_samples[0, :iter +1])
+        omgAgvMinAx.set_data(omgAgvAx_min[0, :iter], traj_samples[0, :iter +1])
+
         # update cost plot
         costAx.set_data(traj_samples[1, :iter], traj_samples[0, :iter +1] )
 
-        return path, horizon,
+        # Update lower slack plot (obstacle, dynamics)
+        for i in range(obst_constr_len):
+            obstSlAx[i].set_data(traj_slack[i, 0, :iter], traj_samples[0, :iter +1] )
+
+        vAgvSlAx.set_data(traj_slack[ obst_constr_len, 0, : iter], traj_samples[0, :iter +1] )
+        omgAgvSlAx.set_data(traj_slack[ obst_constr_len + 1, 0, : iter], traj_samples[0, :iter +1] )
+            
+        # Update upper slack plot (dynamics only)
+
+        vAgvSuAx.set_data(traj_slack[ obst_constr_len, 1, : iter], traj_samples[0, :iter +1] )
+        omgAgvSuAx.set_data(traj_slack[ obst_constr_len + 1, 1, : iter], traj_samples[0, :iter +1] )
+        #UniSuAx.set_data(traj_slack[ obst_constr_len + 2, 1, : iter], traj_samples[0, :iter +1] )
+
+        return path, horizon, #agv
 
     # Plotting routine entry point    
 
@@ -139,7 +165,7 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
     fig = pyplot.figure(figsize=(15,10))
 
     # plot state on right (merge top and bottom right. i.e subplots 2, 3, 5, 6, 8, 9)
-    ax3d = fig.add_subplot(3, 3, (5, 9), projection='3d')
+    ax3d = fig.add_subplot(4, 3, (8, 12), projection='3d')
     ax3d.azim = 120
     ax3d.elev = 87
     fig.add_axes(ax3d)
@@ -192,20 +218,20 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
     ax3d.set_zlabel('Z (m)')
 
     # State zeta_frenet at (1,1) top left
-    zetaF = fig.add_subplot(3, 3, 1)
+    zetaF = fig.add_subplot(4, 3, 1)
     zetaF.set_ylim( np.amin(np.ravel(traj_ST[zetaF_idx : zetaU_idx, 0, :-2])) - 0.2, 
                     np.amax(np.ravel(traj_ST[zetaF_idx : zetaU_idx, 0, :-2])) + 0.2)
     zetaF.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
     zetaF.set_xlabel('time (s)')
     zetaF.set_ylabel("$\\zeta^{f}$")
     zetaF.set_yscale('symlog')
-    sAx = zetaF.stairs([], [0], baseline=None,label="$s$ ($m$)", color="teal" )
-    nAx = zetaF.stairs([], [0], baseline=None,label="$n$ ($m$)", color="lightcoral")
-    betaAx = zetaF.stairs([], [0], baseline=None,label="$\\beta$ ($rad$)", color="plum")
+    sAx = zetaF.stairs([], [0], baseline=None,label="$s$ ($m$)", color="burlywood" )
+    nAx = zetaF.stairs([], [0], baseline=None,label="$n$ ($m$)", color="plum")
+    betaAx = zetaF.stairs([], [0], baseline=None,label="$\\beta$ ($rad$)", color="steelblue")
     zetaF.legend(loc='upper right')
 
     # State zeta_cartesian at (1,2) top left
-    zetaC = fig.add_subplot(3, 3, 2)
+    zetaC = fig.add_subplot(4, 3, 2)
     if(lifted):
         
         zetaC.set_ylim( np.amin(np.ravel(traj_ST[zetaC_idx: zetaF_idx, 0, :])) - 0.2, 
@@ -220,31 +246,32 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
     zetaC.set_xlabel('time (s)')
     
     #zetaC.set_yscale('symlog')
-    xAx = zetaC.stairs([], [0], baseline=None,label="$x$ ($m$)", color="teal" )
-    yAx = zetaC.stairs([], [0], baseline=None,label="$y$ ($m$)", color="lightcoral")
-    phiAx = zetaC.stairs([], [0], baseline=None,label="$\\varphi$ ($rad$)", color="plum")
+    xAx = zetaC.stairs([], [0], baseline=None,label="$x$ ($m$)", color="burlywood" )
+    yAx = zetaC.stairs([], [0], baseline=None,label="$y$ ($m$)", color="plum")
+    phiAx = zetaC.stairs([], [0], baseline=None,label="$\\varphi$ ($rad$)", color="steelblue")
     zetaC.legend(loc='upper right')
 
     # State zeta_u at (2, 1) mid left
-    zetaU = fig.add_subplot(3, 3, 4)
+    zetaU = fig.add_subplot(4, 3, 4)
     zetaU.set_ylim(np.amin(np.ravel(traj_ST[zetaU_idx:, :-2])) - 0.2, 
                np.amax(np.ravel(traj_ST[zetaU_idx:, :-2])) + 0.2)
     zetaU.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
     zetaU.set_xlabel('time (s)')
     zetaU.set_ylabel('$\\zeta^{u}$')
-    velAx = zetaU.stairs([], [0], baseline=None,label="$v$ ($m s^{-1}$)", color="teal" )
-    alpAx = zetaU.stairs([], [0], baseline=None,label="$\\alpha$ (rad)", color="lightcoral")
+    velAx = zetaU.stairs([], [0], baseline=None,label="$v$ ($m s^{-1}$)", color="lightcoral" )
+    alpAx = zetaU.stairs([], [0], baseline=None,label="$\\alpha$ (rad)", color="darkturquoise")
     zetaU.legend(loc='upper right')
 
-    # plot control u at (1,3) bottom right
-    u = fig.add_subplot(3, 3, 7)
+    # Control, Twist, Slack 2D subplots
+    # plot ROS cmd, Controls at (1,1) top mid
+    u = fig.add_subplot(4, 3, 7)
     u.set_ylim(np.amin(np.ravel(traj_U[:, :-2])) - 0.2, 
                np.amax(np.ravel(traj_U[:, :-2])) + 0.2)
     u.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
     u.set_xlabel('time (s)')
     u.set_ylabel('u')
     
-    accWAx = u.stairs([], [0], baseline=None,label="$a$ ($m s^{-2}$)", color="lightcoral" )
+    accWAx = u.stairs([], [0], baseline=None,label="$a$ ($m s^{-2}$)", color="salmon" )
     accWMaxAx = u.stairs([], [0], baseline=None, color="maroon")
     accWMinAx = u.stairs([], [0], baseline=None, color="maroon" )
     
@@ -253,9 +280,26 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
     omgWMinAx = u.stairs([], [0], baseline=None, color="darkslategray" )
     u.legend(loc='upper right')
 
+    # plot ROS Twist at (2,2) mid mid 
+    uDer = fig.add_subplot(4, 3, 5)
+    uDer.set_ylim(np.amin(np.ravel(traj_twist[:, :-2])) - 0.2, 
+                  np.amax(np.ravel(traj_twist[:, :-2])) + 0.2)
+    uDer.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
+    uDer.set_xlabel('time (s)')
+    uDer.set_ylabel('twist')
 
-    # plot costs at (1,3) top right 
-    misc = fig.add_subplot(3, 3, 3)
+    vAgvAx = uDer.stairs([], [0], baseline=None,label="$v_{gg}$ ($m s^{-1}$)", color="burlywood" )
+    vAgvMaxAx = uDer.stairs([], [0], baseline=None,color="darkorange")
+    vAgvMinAx = uDer.stairs([], [0], baseline=None,color="darkorange" )
+    
+    omgAgvAx = uDer.stairs([], [0], baseline=None, label="$\\omega_{gg}$ ($rad s^{-1}$)", color="steelblue" )
+    omgAgvMaxAx = uDer.stairs([], [0], baseline=None, color="navy")
+    omgAgvMinAx = uDer.stairs([], [0], baseline=None,color="navy" )
+
+    uDer.legend(loc='upper right')
+
+    # plot costs at (4,1) bottom left 
+    misc = fig.add_subplot(4, 3, 10)
     misc.set_ylim(np.amin(np.ravel(traj_samples[1, :-2])) - 0.2, 
                   np.amax(np.ravel(traj_samples[1, :-2])) + 0.2)
     misc.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
@@ -263,11 +307,38 @@ def animOptVars(traj_samples, traj_ST, traj_U, lifted=False):
     misc.set_ylabel('cost')
     misc.set_yscale('symlog')
 
-    costAx = misc.stairs([], [0], baseline=None, color="teal" )    
+    costAx = misc.stairs([], [0], baseline=None, color="burlywood" )    
 
-
-    # # # Stack all obstacle axes, but label only one
+    # plot lower slacks at 1,1 (top right)  
+    sl = fig.add_subplot(4, 3, 3)
+    sl.set_ylim(np.amin(np.ravel(traj_slack[:, 0, :])) - 0.1, 
+                np.amax(np.ravel(traj_slack[:, 0, :])) + 0.1)
+    sl.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
+    sl.set_xlabel('time (s)')
+    sl.set_ylabel('lower slacks')
     
+    # # Stack all obstacle axes, but label only one
+    obstSlAx = [None] * obst_constr_len
+    obstSlAx[0] = sl.stairs([], [0], baseline=None, label="obstacle breach (m)", color="lightcoral")
+    for i in range(1, obst_constr_len):
+        obstSlAx[i] = sl.stairs([], [0], baseline=None,color="lightcoral")
+    vAgvSlAx = sl.stairs([], [0], baseline=None, label="$v_{gg}$ breach ($m s^{-1}$)" ,color="burlywood" )
+    omgAgvSlAx = sl.stairs([], [0], baseline=None, label="$\\omega_{gg}$ breach ($rad s^{-1}$)" ,color="steelblue" )
+    sl.legend(loc='upper right')
+
+    # Plot upper slacks (dynamics only) at (1,3) mid right  
+    su = fig.add_subplot(4, 3, 6)
+    su.set_ylim(np.amin(np.ravel(traj_slack[obst_constr_len:, 1, :])) - 0.1, 
+                np.amax(np.ravel(traj_slack[obst_constr_len:, 1, :])) + 0.1)
+    su.set_xlim(0, np.amax(traj_samples[0, :]) + 0.2)
+    su.set_xlabel('time (s)')
+    su.set_ylabel('upper slacks')
+
+    vAgvSuAx = su.stairs([], [0], baseline=None, label="$v_{gg}$ breach ($m s^{-1}$)" ,color="burlywood" )
+    omgAgvSuAx = su.stairs([], [0], baseline=None, label="$\\omega_{gg}$ breach ($rad s^{-1}$)" ,color="steelblue" )
+    #UniSuAx = su.stairs([], [0], baseline=None, label="unique breach ($rad s^{-1}$)" ,color="red" )
+    su.legend(loc='upper right')
+
     fig.canvas.mpl_connect('button_press_event', onClick)
     anim = animation.FuncAnimation(fig=fig, func=animate, 
                                    init_func=init, 

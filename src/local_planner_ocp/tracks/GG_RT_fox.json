@@ -1,0 +1,244 @@
+{
+  "configById": {
+    "3D!iftwtl": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 68.49572529362155,
+        "phi": 19.76097021514259,
+        "thetaOffset": -169.10782713930547,
+        "targetOffset": [
+          5.348110206465869,
+          -2.0653914503796855,
+          4.945698410021897e-16
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-none",
+      "followTf": "map",
+      "scene": {},
+      "transforms": {
+        "frame:base_link": {
+          "visible": false
+        },
+        "frame:mast": {
+          "visible": false
+        },
+        "frame:fork_lift_link": {
+          "visible": false
+        },
+        "frame:fork_sideshift_link": {
+          "visible": false
+        },
+        "frame:fork": {
+          "visible": false
+        },
+        "frame:fork_left": {
+          "visible": false
+        },
+        "frame:fork_right": {
+          "visible": false
+        },
+        "frame:load_detection_sensor": {
+          "visible": false
+        },
+        "frame:range_sensor": {
+          "visible": false
+        },
+        "frame:scanner_rear": {
+          "visible": false
+        },
+        "frame:scanner_front": {
+          "visible": false
+        },
+        "frame:rear_left_wheel": {
+          "visible": false
+        },
+        "frame:rear_right_wheel": {
+          "visible": false
+        },
+        "frame:sd_unit1_axis": {
+          "visible": false
+        },
+        "frame:scanner_top": {
+          "visible": false
+        },
+        "frame:sd_unit1": {
+          "visible": false
+        },
+        "frame:base_link_pred": {
+          "visible": false
+        },
+        "frame:odom": {
+          "visible": false
+        },
+        "frame:map": {
+          "visible": false
+        }
+      },
+      "topics": {
+        "param:/robot_description": {
+          "visible": true
+        },
+        "/scanner_rear/scan_filtered": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "flat",
+          "colorMap": "turbo",
+          "flatColor": "#c72626ff"
+        },
+        "/scanner_front/scan_filtered": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "flat",
+          "colorMap": "turbo",
+          "flatColor": "#a10707ff"
+        },
+        "/scanner_front_simulation/safety_field": {
+          "visible": true
+        },
+        "/scanner_rear_simulation/safety_field": {
+          "visible": true
+        },
+        "/pcl": {
+          "visible": false,
+          "colorField": "x",
+          "colorMode": "flat",
+          "colorMap": "turbo",
+          "pointSize": 4,
+          "stixelsEnabled": false,
+          "flatColor": "#4da5bbff"
+        },
+        "/Markers": {
+          "visible": true
+        },
+        "/MarkerArray": {
+          "visible": true,
+          "namespaces": {
+            "obstacle_sphere": {
+              "visible": true
+            }
+          }
+        },
+        "/scanner_front/scan": {
+          "visible": false,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/scanner_rear/scan": {
+          "visible": false,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/scanner_front/scan_hector": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/slam_out_pose": {
+          "visible": false
+        },
+        "/map": {
+          "visible": true,
+          "minColor": "#150e0eff"
+        },
+        "/move_base_simple/goal": {
+          "visible": false
+        },
+        "/scanner_top/scan": {
+          "visible": false,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/scanner_top/scan_hector": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/scanner_top/scan_filtered": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "flat",
+          "colorMap": "turbo",
+          "flatColor": "#a10707ff"
+        },
+        "/amcl_pose": {
+          "visible": false
+        },
+        "/Horizon": {
+          "visible": true,
+          "axisScale": 2.7,
+          "type": "arrow",
+          "lineWidth": 0.26,
+          "gradient": [
+            "rgba(124, 107, 255, 1)",
+            "#ff6b6c80"
+          ]
+        },
+        "/initialpose": {
+          "visible": false
+        },
+        "/poseupdate": {
+          "visible": false,
+          "covarianceColor": "#43f18440",
+          "axisScale": 0.7
+        },
+        "/scan": {
+          "visible": false
+        },
+        "/WaypointTrack": {
+          "visible": true
+        },
+        "/ShootingNodes": {
+          "visible": true,
+          "type": "line",
+          "gradient": [
+            "#6bff94ff",
+            "rgba(124, 107, 255, 0.5)"
+          ],
+          "arrowScale": [
+            1,
+            0.15,
+            0.15
+          ]
+        }
+      },
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    }
+  },
+  "globalVariables": {
+    "": "\"\""
+  },
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": "3D!iftwtl"
+}

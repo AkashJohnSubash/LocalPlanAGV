@@ -3,8 +3,9 @@ import matplotlib as mpl
 from matplotlib import pyplot
 import shutil
 
-from common import *
-from sys_dynamics import SysDyn
+from local_planner_ocp.common import *
+from local_planner_ocp.sys_dynamics import SysDyn
+
 
 text_usetex = True if shutil.which('latex') else False
 params = {
@@ -21,7 +22,9 @@ params = {
 mpl.rcParams.update(params)
 
 
-def plotOptVars(time_stamps, traj_ST0, traj_U0, lifted=False ):
+
+
+def plotOptVars(time_stamps, traj_ST0, traj_U0, traj_twist0, lifted=False ):
     
     '''Plot1 state and control '''
     sysModel = SysDyn()
