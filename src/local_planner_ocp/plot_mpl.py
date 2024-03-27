@@ -18,7 +18,6 @@ params = {
         'text.usetex': text_usetex,
         'font.family': 'serif'
 }
-
 mpl.rcParams.update(params)
 
 
